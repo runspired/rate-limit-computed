@@ -1,6 +1,6 @@
 {
   "name": "rate-limit-computed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Debounced and Throttled Computed Properties for Ember.",
   "directories": {
     "doc": "doc",
