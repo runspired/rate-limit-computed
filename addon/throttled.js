@@ -20,7 +20,7 @@ export default function throttledProperty() {
 
   var methodFn = function(key) {
     __value = method.call(this);
-    next(this, this.propertyDidChange, key);
+    join(this, this.propertyDidChange, key);
   };
 
   args.push(function(key) {

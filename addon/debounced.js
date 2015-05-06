@@ -7,7 +7,7 @@ const {
 
 const {
   debounce,
-  next
+  join
   } = run;
 
 export default function debouncedProperty() {
@@ -23,7 +23,7 @@ export default function debouncedProperty() {
     if (!__isNotifying) {
       __isNotifying = true;
       __value = method.call(this);
-      next(this, this.propertyDidChange, key);
+      join(this, this.propertyDidChange, key);
     } else {
       __isNotifying = false;
     }
