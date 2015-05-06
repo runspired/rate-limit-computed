@@ -16,15 +16,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
 
-      contentSecurityPolicy: {
-        'font-src': "'self' https://maxcdn.bootstrapcdn.com",
-        'img-src': "'self' https://maxcdn.bootstrapcdn.com",
-        'style-src': "'unsafe-inline' 'self' https://maxcdn.bootstrapcdn.com",
-        'media-src': "'self' https://maxcdn.bootstrapcdn.com"
-      }
-
+    contentSecurityPolicy: {
+      'font-src': "'self' https://maxcdn.bootstrapcdn.com http://fonts.googleapis.com http://fonts.gstatic.com",
+      'img-src': "'self' https://maxcdn.bootstrapcdn.com",
+      'style-src': "'unsafe-inline' 'self' https://maxcdn.bootstrapcdn.com http://fonts.googleapis.com http://fonts.gstatic.com",
+      'media-src': "'self' https://maxcdn.bootstrapcdn.com"
     }
+
   };
 
   if (environment === 'development') {

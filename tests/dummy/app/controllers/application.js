@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     var count = this.get('count');
     this.incrementProperty('cubedTriggered');
     return count * count * count;
-  }, 750),
+  }, 16),
 
 
   squaredTriggered: 0,
@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
     var count = this.get('count');
     this.incrementProperty('squaredTriggered');
     return count * count;
-  }, 750),
+  }, 16),
 
   count: 0,
 
@@ -33,8 +33,8 @@ export default Ember.Controller.extend({
     },
     triggerThree: function() {
       this.incrementProperty('count');
-      run.later(this, function() { this.incrementProperty('count'); }, 250);
-      run.later(this, function() { this.incrementProperty('count'); }, 250);
+      run.later(this, function() { this.incrementProperty('count'); }, 4);
+      run.later(this, function() { this.incrementProperty('count'); }, 4);
     }
   }
 

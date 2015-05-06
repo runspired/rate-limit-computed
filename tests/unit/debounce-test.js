@@ -16,14 +16,14 @@ module('Ember.computed.debounce Integration Tests', {
 });
 
 test("Ember.computed.debounce updates property values correctly", function(assert) {
-  assert.expect(9);
+  assert.expect(12);
   visit('/');
 
   var controller = getController('application');
 
   andThen(function () {
 
-
+    assert.equal(controller.get('count'), 0, 'The count begins at 0');
     assert.equal(controller.get('squaredTriggered'), 1, 'The computed property was triggered once during setup.');
     assert.equal(find('#squaredValue').text(), '0', 'The Screen reflects the correct initial value.');
     assert.equal(controller.get('squared'), 0, 'The computed property is set correctly during setup.');
@@ -31,6 +31,7 @@ test("Ember.computed.debounce updates property values correctly", function(asser
     click('#plusOne');
 
     andThen(function() {
+      assert.equal(controller.get('count'), 1, 'The count was incremented to 1.');
       assert.equal(controller.get('squaredTriggered'), 2, 'The computed property triggers correctly.');
       assert.equal(find('#squaredValue').text(), '1', 'The Screen reflects the correct updated value.');
       assert.equal(controller.get('squared'), 1, 'The computed property reflects the correct value.');
@@ -39,6 +40,7 @@ test("Ember.computed.debounce updates property values correctly", function(asser
     click('#triggerThree');
 
     andThen(function() {
+      assert.equal(controller.get('count'), 4, 'The count was incremented to 4.');
       assert.equal(controller.get('squaredTriggered'), 3, 'The computed property triggered only once.');
       assert.equal(find('#squaredValue').text(), '16', 'The Screen reflects the correct value of 4x4.');
       assert.equal(controller.get('squared'), 16, 'The computed property reflects the correct value of 4x4.');

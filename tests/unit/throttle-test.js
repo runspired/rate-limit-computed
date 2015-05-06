@@ -23,7 +23,6 @@ test("Ember.computed.throttle updates property values correctly", function(asser
 
   andThen(function () {
 
-
     assert.equal(controller.get('cubedTriggered'), 1, 'The computed property was triggered once during setup.');
     assert.equal(find('#cubedValue').text(), '0', 'The Screen reflects the correct initial value.');
     assert.equal(controller.get('cubed'), 0, 'The computed property is set correctly during setup.');
