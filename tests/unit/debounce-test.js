@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
 var App;
 
-module('Action Helper Integration Tests', {
+module('Ember.computed.debounce Integration Tests', {
 
   beforeEach: function() {
     App = startApp();
