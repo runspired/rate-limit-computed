@@ -6,7 +6,8 @@ const {
   } = Ember;
 
 const {
-  throttle
+  throttle,
+  next
   } = run;
 
 export default function throttledProperty() {
@@ -17,14 +18,15 @@ export default function throttledProperty() {
 
   var __value = null;
 
-  var methodFn = function() {
+  var methodFn = function(key) {
     __value = method.call(this);
+    next(this, this.propertyDidChange, key);
   };
 
-  args.push(function() {
-    throttle(this, methodFn, rate);
+  args.push(function(key) {
+    throttle(this, methodFn, key, rate);
     return __value;
   });
   return computed.apply(this, args);
 
-};
+}

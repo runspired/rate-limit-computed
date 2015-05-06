@@ -1,25 +1,34 @@
 # Rate-limit-computed
 
-This README outlines the details of collaborating on this Ember addon.
+Sometimes you need to debounce or throttle a computed property.  In the past, doing
+so would usually require using an observer instead.
 
-## Installation
+You'll still need to make sure your `computed.debounce` or `computed.throttle` are
+consumed somewhere, else they won't ever be updated.
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Usage
 
-## Running
+    import Ember from "ember";
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+    const {
+     computed
+     } = Ember;
+     
+    export default Ember.Component.extend({
+    
+      cubed: computed.throttle('foo', function() {
+        var foo = this.get('foo');
+        return foo * foo * foo;
+      }, 16)
+    
+      count: 0,
+    
+    });
 
-## Running Tests
 
-* `ember test`
-* `ember test --server`
 
-## Building
+In your template, you use the computed property just like normal.
 
-* `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+    {{cubed}}
+

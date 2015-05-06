@@ -1,3 +1,49 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Rate Limited Computed Properties</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p>
+                Sometimes you need to debounce or throttle a computed property.  In the past,
+                doing so would usually require using an observer instead.
+            </p>
+            <p>
+                You'll still need to make sure your `computed.debounce` or `computed.throttle` are
+                consumed somewhere, else they won't ever be updated.
+            </p>
+            <table class="table table-striped">
+               <tbody>
+                  <tr>
+                      <td>Count</td><td>{{count}}</td>
+                  </tr>
+                  <tr>
+                      <td>Squared</td><td id="squaredValue">{{squared}}</td>
+                  </tr>
+                  <tr>
+                      <td>Cubed</td><td id="cubedValue">{{cubed}}</td>
+                  </tr>
+                  <tr>
+                      <td>Squared Triggered</td><td>{{squaredTriggered}}</td>
+                  </tr>
+                  <tr>
+                      <td>CubedTriggered</td><td>{{cubedTriggered}}</td>
+                  </tr>
+               </tbody>
+            </table>
+
+            <button {{action "plusOne"}} id="plusOne">Plus One</button>
+            <button {{action "triggerThree"}} id="triggerThree">Trigger Three</button>
+
+        </div>
+        <div class="col-sm-6">
+            <h2>Controller code for this example</h2>
+
+          {{code-snippet name="debounce-throttle-example.js"}}
+        </div>
+    </div>
+</div>
 
 {{outlet}}
