@@ -35,7 +35,7 @@ export default function throttledProperty() {
       var _super = this.willDestroy;
       this.willDestroy = function() {
         cancel(__next);
-        _super();
+        _super.apply(this);
       };
       __onDestroy = true;
     }
